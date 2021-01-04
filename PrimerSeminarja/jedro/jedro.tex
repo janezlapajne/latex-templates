@@ -1,0 +1,161 @@
+\section{Rešavanje naloge}\label{sec:jedro}
+%
+Nalogo bomo rešimo z \emph{Lagrange}ovimi enačbami 2. reda;
+dinamično ravnotežje sistema je opisano z enačbo:
+\begin{equation}\label{eq:Lagrange2}
+  \frac{\textrm{d}}{\textrm{d}t}
+  \frac{\partial T}{\partial \dot{q}_j}-
+  \frac{\partial T}{\partial q_j}
+  =
+  Q_j\qquad
+  \textrm{za vse $j$.}
+\end{equation}
+Kjer je $T$ \emph{kinetična energija sistema}, $Q$ pa
+\emph{posplošena sila}. Sistem ima $P$=2 prostostnih stopenj in
+$N$=2 nevezanih posplošenih koordinat:
+\begin{eqnarray}\label{eq:PospKoord}
+  q_1=\varphi\\
+  q_2=\psi
+\end{eqnarray}
+
+\emph{Kinetična energija sistema} je:
+\begin{equation}\label{eq:T}
+  T=
+  \frac{1}{2}\,J_O\,\dot{\varphi}^2+
+  \frac{1}{2}\,m_2\,v_B^2,
+\end{equation}
+kjer je $J_O$ \emph{masni vztrajnostni moment} valja okoli vrtišča
+O in $v_B$ \emph{hitrost translacije masne točke} B.
+\begin{equation}\label{eq:JO}
+  J_O=
+  \frac{m_1\,R^2}{2}
+\end{equation}
+Da določimo hitrost točke B določimo najprej njeno lego:
+\begin{equation}\label{eq:xB}
+  x_B=
+  (l_0-R\,\varphi+R\,\psi)\,
+  \sin(\psi)+
+  R\,\cos(\psi)
+\end{equation}
+\begin{equation}\label{eq:yB}
+  y_B=
+  (l_0-R\,\varphi+R\,\psi)\,
+  \cos(\psi)-
+  R\,\sin(\psi)
+\end{equation}
+Z odvajanjem krajevnih koordinat dobimo hitrosti:
+\begin{equation}\label{eq:dxB}
+  \dot{x}_B=
+  +(l_0-R\,\varphi+R\,\psi)\,
+  \dot{\psi}\,\cos(\psi)-
+  R\,\dot{\varphi}\,\sin(\psi)
+\end{equation}
+\begin{equation}\label{eq:dyB}
+  \dot{y}_B=
+  -(l_0-R\,\varphi+R\,\psi)\,
+  \dot{\psi}\,\sin(\psi)-
+  R\,\dot{\varphi}\,\cos(\psi)
+\end{equation}
+Sledi:
+\begin{equation}\label{eq:vB2}
+  v_B^2=\dot{x}_B^2+\dot{y}_B^2=
+  (l_0-R\,\varphi+R\,\psi)^2\,
+  \dot{\psi}^2
+  +R^2\,\dot{\varphi}^2
+\end{equation}
+Sedaj vstavimo enačbi~(\ref{eq:JO}) in~(\ref{eq:vB2}) v
+enačbo~(\ref{eq:T}) in izpeljemo
+\begin{equation}\label{eq:Tizpelj}
+  T=
+  \frac{1}{4}\,
+  (m_1+2\,m_2)\,
+  R^2\,\dot{\varphi}^2+
+  \frac{1}{2}\,m_2\,
+  (l_0-R\,\varphi+R\,\psi)^2\,\dot{\psi}^2
+\end{equation}
+Kinetično energijo sedaj parcialno odvajamo kakor narekuje
+ravnotežna enačba~(\ref{eq:Lagrange2}), najprej za posplošeno
+koordinato $\varphi$:
+\begin{eqnarray}\label{eq:dPosp1}
+  \frac{\partial T}{\partial \dot{\varphi}}&=&
+  \frac{1}{2}\,(m_1+2\,m_2)\,R^2\,\dot{\varphi}\\
+%
+  \frac{\textrm{d}}{\textrm{d}t}
+  \frac{\partial T}{\partial \dot{\varphi}}&=&
+  \frac{1}{2}\,(m_1+2\,m_2)\,R^2\,\ddot{\varphi}\\
+%
+  \frac{\partial T}{\partial \varphi}&=&
+  -m_2\,R\,(l_0-R\,\varphi+R\,\psi)\,\dot{\psi}^2\\
+\end{eqnarray}
+Podobno izpeljemo za posplošeno koordinato $\psi$:
+\begin{eqnarray}\label{eq:dPosp2}
+  \frac{\partial T}{\partial \dot{\psi}}&=&
+  m_2\,(l_0-R\,\varphi+R\,\psi)^2\,\dot{\psi}\\
+%
+  \frac{\textrm{d}}{\textrm{d}t}
+  \frac{\partial T}{\partial \dot{\psi}}&=&
+  m_2\,(l_0-R\,\varphi+R\,\psi)^2\,\ddot{\psi}+
+  2\,m_2\,R\,(l_0-R\,\varphi+R\,\psi)\,(\dot{\psi}-\dot{\varphi})\dot{\psi}\\
+%
+  \frac{\partial T}{\partial \psi}&=&
+  m_2\,R\,(l_0-R\,\varphi+R\,\psi)\,\dot{\psi}^2\\
+\end{eqnarray}
+
+Glede na ravnotežno enačbo~(\ref{eq:Lagrange2}) moramo določiti še
+posplošeno silo, ki jo izpeljemo iz izraza za \emph{virtualno
+delo}:
+\begin{equation}\label{eq:W}
+  \delta W=
+   Q_{\varphi}\,\delta \varphi
+  +Q_{\psi}\,\delta \psi=
+   M\,\delta \varphi
+   m_2\,g\,\delta y_B,
+\end{equation}
+kjer variacijo $y_B$ moramo izračunati:
+\begin{equation}\label{eq:varYB}
+  \delta y_B=
+              \frac{\partial y_B}{\partial \varphi} \,\delta \varphi
+              +\frac{\partial y_B}{\partial \psi} \,\delta \psi
+            =
+            -R\,\cos(\psi)\,\delta \psi
+            -(l_0-R\,\varphi+R\,\psi)\,\sin(\psi)\,\delta \psi
+\end{equation}
+Za virtualno delo torej izpeljemo izraz:
+\begin{equation}\label{eq:WIzpel}
+  \delta W=
+    (M-m_2\,g\,R\,\cos(\psi))\,\delta \varphi
+   +(-m_2\,g\,(l_0-R\,\varphi+R\,\psi)\,\sin(\psi))\,\delta \psi
+\end{equation}
+Sledi, da sta posplošeni sili:
+\begin{eqnarray}\label{eq:Q}
+  Q_{\varphi} &=&M-m_2\,g\,R\,\cos(\psi)\\
+  Q_{\psi}&=&-m_2\,g\,(l_0-R\,\varphi+R\,\psi)\,\sin(\psi)
+\end{eqnarray}
+Èe sedaj enačbo za dinamično ravnotežje~(\ref{eq:Lagrange2})
+zapišemo za vsako posplošeno koordinato posebej:
+\begin{eqnarray}\label{eq:Lagrange2Komp1}
+  \frac{\textrm{d}}{\textrm{d}t}
+  \frac{\partial T}{\partial \dot{\varphi}_j}-
+  \frac{\partial T}{\partial \varphi_j}
+  =
+  Q_{\varphi}\\\label{eq:Lagrange2Komp2}
+  \frac{\textrm{d}}{\textrm{d}t}
+  \frac{\partial T}{\partial \dot{\psi}_j}-
+  \frac{\partial T}{\partial \psi_j}
+  =
+  Q_{\psi}
+\end{eqnarray}
+Z vstavljanjem zgoraj izpeljanih izrazov za kinetično energijo in
+posplošeno silo v enačbi~(\ref{eq:Lagrange2Komp1})
+in~(\ref{eq:Lagrange2Komp2}) dobimo sistem dveh diferencialnih
+enačb gibanja:
+\begin{eqnarray}\label{eq:resitev}
+   (l_0-R\,\varphi+R\,\psi)\,\ddot{\psi}
+  +R(\dot{\psi}^2+2\,\dot{\varphi}\,\dot{\psi})
+  &=&
+  -g\, \sin(\psi)\\
+   \frac{1}{2}(m_1+2\,m_2)\,R\,\ddot{\varphi}
+  +m_2(l_0-R\,\varphi+R\,\psi)\,\dot{\psi}^2
+  &=&
+  M-m_2\,R\,g\,\cos(\psi)
+\end{eqnarray}

@@ -1,0 +1,58 @@
+\documentclass[10pt,a4paper,oneside,fleqn,openany]{article}
+\usepackage[slovene]{babel}     %za prikaz šumnikov
+\usepackage[utf8]{inputenc}     %za prikaz šumnikov
+\usepackage{amsfonts}           %doda zbirko matematičnih znakov
+\usepackage{graphicx}           %prikz slik  
+\usepackage{longtable}          %paket za tabele, ki se raztezajo čez več strani
+%
+% Nastavitve strani
+\setlength{\oddsidemargin}{-0. cm} %
+\setlength{\evensidemargin}{-0. cm}%
+\setlength{\topmargin}{-0.54 cm}   %
+\setlength{\textwidth}{16. cm}     %
+\setlength{\textheight}{24 cm}     %
+\setlength{\marginparsep}{3 mm}    %
+\setlength{\marginparwidth}{1.5 cm}%
+%
+% Nastavitve odstavka
+\setlength{\parindent}{0 mm}       %
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex}%
+\renewcommand{\baselinestretch}{1.25}%
+\setlength{\mathindent}{1 cm}      %
+%
+%Literatura
+\bibliographystyle{unsrt}         %literatura je sortirana po vrstnem redu prve navedbe
+%
+%Kazalo
+\setcounter{tocdepth}{2}
+%
+%Povezave, aktiven dokument
+\usepackage{hyperref}              %naredi dokument aktiven (v DVI in PDF) -> mora biti vedno zadnji
+                                   %pred začetkom dokumenta
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%Naslovnica
+\input{prveStrani/prveStrani}
+%Kazalo
+\tableofcontents
+\pagebreak
+%Tabela oznak
+\input{oznake/oznake}
+\pagebreak
+%Uvod
+\input{uvod/uvod}
+\pagebreak
+%Jedro
+\input{jedro/jedro}
+\pagebreak
+%Zaključek
+\input{zakljucek/zakljucek}
+\pagebreak
+%Literatura
+\addcontentsline{toc}{section}{Literatura} 
+\bibliography{Literatura}
+\pagebreak
+%Dodatki in priloge
+\appendix
+\input{dodatek/dodatek}
+\end{document}
